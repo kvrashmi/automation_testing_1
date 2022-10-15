@@ -1,0 +1,146 @@
+Select - Dropdown
+
+Types:
+1. SingleSelect - Only one option
+2. MultiSelect - As many as we want
+3. Grouping Options: <optgroup>
+
+HTML Tag for single select:
+<select id="select1">
+	<option value="n1"> Value1 </option>
+	<option value="n2"> Value2 </option>
+</select>
+
+HTML Tag for multi select:
+<select id="select2" multiple>
+	<option value="m1"> MultiValue1 </option>
+	<option value="m2"> MultiValue2 </option>
+</select>
+
+HTML Tag for Group Options:
+<select id="select3">
+	<optgroup label="group1>
+		<option value="1"> GroupValue1 </option>
+		<option value="2"> GroupValue2 </option>
+	</optgroup>
+	<optgroup label="group2>
+		<option value="z3"> GroupValue3 </option>
+		<option value="z4"> GroupValue4 </option>
+	</optgroup>
+</select>
+
+Xpath:
+/html/body/div[4]/select
+//*[@id="parrot-select"]
+
+Select options:
+Methods            	ReturnType
+selectByIndex       	void
+selectByValue       	void
+selectByVisibleText     void
+
+Deselect:
+deselectByIndex          void
+deselectByValue          void
+deselectByVisibleText    void
+deselectAll              void
+
+isMultiple(): True/False
+
+Getting all the options in a select box:
+getOptions()              List<WebElement>
+
+Get the selected option: single/multi select
+getFirstSelectedOption()  WebElement 
+
+Get all selected options: multi-select
+getAllSelectedOptions()   List<WebElement>
+
+General Syntax:
+Select sel = new Select(driver.findElement(By.xpath("//select[@id='cat-select']"));
+
+//Index starts at 0
+sel.selectByIndex(0);
+//Deselect Index starts at 0
+sel.deselectByIndex(0);
+
+//Select By Value
+sel.selectByValue("c_mc");
+//DeSelect By Value
+sel.deselectByValue("c_mc");
+
+
+//Select By VisibleText:
+sel.selectByVisibleText("Siamese Cat");
+//DeSelect By VisibleText:
+sel.deselectByVisibleText("Siamese Cat");
+
+
+Select sel1 = new Select(driver.findElement(By.xpath("//select[@id='parrot-select']"));
+if(sel1.isMultiple()) //True
+{
+	sel1.selectByIndex(0);
+	sel1.selectByValue("p2");
+	sel1.selectByVisibleText("Cockatiel");
+}
+
+List<WebElement> selOptions = sel1.getOptions();
+for(WebElement opt: selOptions)
+{
+	system.out.println(opt.getText();
+}
+
+WebElement selOption = sel1.getFirstSelectedOption();
+system.out.println(selOption.getText();
+
+List<WebElement> selOptions1 = sel1.getAllSelectedOptions();
+for(WebElement opt: selOptions1)
+{
+	system.out.println(opt.getText();
+}
+
+
+Select sel1 = new Select(driver.findElement(By.xpath("//select[@id='dino-select']/optgroup[@label='Group1']/option"));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
