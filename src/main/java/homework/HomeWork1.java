@@ -132,8 +132,8 @@ public class HomeWork1 {
 	@AfterClass
 	public static void tearDown()
 	{
-		//driver.close();
-		//driver.quit();
+		driver.close();
+		driver.quit();
 	}
 	
 }

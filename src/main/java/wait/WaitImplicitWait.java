@@ -33,11 +33,12 @@ public class WaitImplicitWait {
 	{
 		driver1 = new ChromeDriver();
 		driver1.manage().deleteAllCookies();
-		driver1.get("chrome://settings/clearBrowserData");
-	    driver1.findElement(By.xpath("//settings-ui")).sendKeys(Keys.ENTER);
+		//driver1.get("chrome://settings/clearBrowserData");
+	   // driver1.findElement(By.xpath("//settings-ui")).sendKeys(Keys.ENTER);
 		driver1.manage().window().maximize();
 	}
 
+	
 	@Test
 	public void getPageWithImplicitWait1()
 	{
@@ -82,6 +83,19 @@ public class WaitImplicitWait {
 		Instant end2= Instant.now();
 		Duration timeElapsed2 = Duration.between(start2, end2);
 		System.out.println("Time taken: "+ timeElapsed2.toMillis() +" seconds");
+	}
+	
+	
+	@Test
+	public void getPageWithImplicitlyWait3()
+	{
+		System.out.println("From ImplicitWait3:");
+		driver1.manage().timeouts().implicitlyWait(30, TimeUnit.MILLISECONDS);
+		driver1.get("https://www.google.com");
+		driver1.findElement(By.name("q")).sendKeys("Selenium");
+		driver1.findElement(By.name("q")).sendKeys(Keys.RETURN);
+		WebElement element = driver1.findElement(By.xpath("//h3[text()='Selenium']"));
+		element.click();
 	}
 	
 	@After
