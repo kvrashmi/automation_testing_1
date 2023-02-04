@@ -256,23 +256,29 @@ public class DWT_Ex1 {
 	}
 	
 	@Test
-	public void C()
+	public void Step11()
 	{
 		System.out.println("TC11_HandlingDynamicWebTable");
 		current_url=getCurrentUrlForHM1();
+		
+		String id1 = driver.findElement(By.xpath("//*[@id='page-wrapper']//child::table/tbody//tr/td[1]")).getText();
+		System.out.println("Id from page1:"+id1);
 		
 		//Get all the values in that column after sorting
 		int pCount=pageCount();
 		System.out.println("Obtained the pageCount..");
 		
 		// Javascript executor
-	    ((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
+	    //((JavascriptExecutor) driver).executeScript("window.scrollTo(0, document.body.scrollHeight)");
 	    
 		WebElement currentPage1 =driver.findElement(By.xpath("//*[@id='page-wrapper']//child::table/tfoot/tr/td/ul/li[@class='footable-page']["+2+"]")); 
 		WebElement currentPage2 =driver.findElement(By.xpath("//*[@id='page-wrapper']//child::table/tfoot/tr/td/ul/li[@class='footable-page']["+3+"]")); 
 
 		System.out.println(currentPage1.getText());
 		System.out.println(currentPage2.getText());
+		
+		JavascriptExecutor executor = (JavascriptExecutor) driver;
+		executor.executeScript("arguments[0].scrollIntoView(true);", currentPage2);
 
 		try 
 		{
@@ -283,22 +289,26 @@ public class DWT_Ex1 {
 			e.printStackTrace();
 		}
 		
-		// Create an object of actions class and pass reference of WebDriver as a parameter to its constructor. 
-		   Actions actions = new Actions(driver); 
-
-		// Call moveToElement() method of actions class to move mouse cursor to a WebElement A. 
-		   actions.moveToElement(currentPage1); 
-		   actions.clickAndHold(); 
-		   actions.release().perform(); 
-		   
-		   System.out.println("Done");
-		   
-		   actions.moveToElement(currentPage2);
-		   actions.clickAndHold(); 
-		   actions.release().perform(); 
-		   System.out.println("Done");
-
+		
+		
+		Actions action = new Actions(driver);
+		action.moveToElement(currentPage2).perform();
+		WebDriverWait wait= (new WebDriverWait(driver, 5));
+		wait.until(ExpectedConditions . elementToBeClickable (currentPage2));
+		//fix with JavaScript executor
+		JavascriptExecutor jse = (JavascriptExecutor) driver;
+		jse.executeScript("arguments[0].click();", currentPage2);
+		String id2 = driver.findElement(By.xpath("//*[@id='page-wrapper']//child::table/tbody//tr/td[1]")).getText();
+		System.out.println("Id from page1:"+id2);	
 	}
+	
+	@Test
+	public void Step12()
+	{
+		System.out.println("TC12_Click a chek box in a table:");
+		current_url=getCurrentUrlForHM1();
+	}
+	
 	
 	@AfterClass
 	public static void tearDown()
