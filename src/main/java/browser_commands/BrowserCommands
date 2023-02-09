@@ -1,0 +1,19 @@
+1.driver.get(appUrl): void
+This method Load a new web page in the current browser window. Accepts String as a parameter and returns nothing.
+2.driver.getTitle(): String
+This method fetches the Title of the current page. Accepts nothing as a parameter and returns a String value.
+3.driver.getCurrentUrl(): String
+This method fetches the string representing the Current URL which is opened in the browser. Accepts nothing as a parameter and returns a String value.
+4.driver.getPageSource(): String 
+This method returns the Source Code of the page. Accepts nothing as a parameter and returns a String value.
+5.driver.close(): void
+This method Close only the current window the WebDriver is currently controlling. 
+Accepts nothing as a parameter and returns nothing.
+6.driver.quit(): void
+This method Closes all windows opened by the WebDriver.
+Accepts nothing as a parameter and returns nothing.
+
+Important to note that this command will only close the browser's window opened by the selenium in the same session. 
+If any browser is opened manually, this will have no impact on the same. 
+Also, there is no impact on the browsers opened in another run or session even by the Selenium. 
+The same is with close() method as well.

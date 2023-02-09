@@ -12,6 +12,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class Cal_Calendar {
 	
@@ -131,7 +133,7 @@ public class Cal_Calendar {
 	{
 		System.out.println("TC4_Click Date_Enter Details");
 		WebElement calendar = driver.findElement(By.xpath("//*[@id='side-menu']/li[9]/a/span"));
-		System.out.println(calendar.getText());
+		System.out.println("Get Text:"+calendar.getText());
 		calendar.click();
 		try {
 			Thread.sleep(3000);	
@@ -168,16 +170,31 @@ public class Cal_Calendar {
 			Thread.sleep(6000);
 			
 			//Select date from date picker
+			WebElement sDatePicker = driver.findElement(By.xpath("//*[@id='start_table']"));
+			//First let us make sure this element is available.
+			WebDriverWait wait = new WebDriverWait(driver,30);
+			wait.until(ExpectedConditions.visibilityOf(sDatePicker));
+			//Select a start date:
+			WebElement dateToPick1 = driver.findElement(By.xpath("//*[@id='start_table']/tbody/tr/td[1]/div"));
+			System.out.println("Start Date Selected:"+dateToPick1.getAttribute("aria-label"));
+			dateToPick1.click();
 			
-			//Select time from time picker
 			
 			//End Date
+			WebElement eDate = driver.findElement(By.xpath("//*[@id=\"end\"]"));
+			eDate.click();
+			Thread.sleep(6000);
+			WebElement eDatePicker = driver.findElement(By.xpath("//*[@id='end_table']"));
+			//First let us make sure this element is available.
+			WebDriverWait wait1 = new WebDriverWait(driver,120);
+			wait1.until(ExpectedConditions.visibilityOf(eDatePicker));
+			//Select a start date:
+			WebElement dateToPick2 = driver.findElement(By.xpath("//*[@id='end_table']/tbody/tr[5]/td[3]/div"));
+			System.out.println("End Date Selected:"+dateToPick2.getAttribute("aria-label"));
+			dateToPick2.click();
 			
-			//Select date from date picker
 			
 			//Select time from time picker
-			
-			
 			
 			driver.switchTo().window(parentWindowHandler);  // switch back to parent window
 		} 

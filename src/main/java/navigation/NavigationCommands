@@ -1,0 +1,9 @@
+1.driver().navigation().to("url"):
+This method Loads a new web page in the current browser window. It accepts a String parameter and returns nothing.
+2.driver.navigate().forward():
+This method does the same operation as clicking on the Forward Button of any browser. It neither accepts nor returns anything.
+3.driver.navigate().back():
+This method does the same operation as clicking on the Back Button of any browser. It neither accepts nor returns anything.
+driver.navigate().refresh():
+This method Refresh the current page. It neither accepts nor returns anything.
+

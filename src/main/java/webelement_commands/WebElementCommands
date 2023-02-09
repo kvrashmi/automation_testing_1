@@ -1,0 +1,26 @@
+1.clear( ) : void: 
+If this element is a text entry element, this will clear the value. This method accepts nothing as a parameter and returns nothing.
+This method has no effect on other elements. Text entry elements are INPUT and TEXTAREA elements.
+2.sendKeys(CharSequence... keysToSend ) : void: 
+This simulates typing into an element, which may set its value. This method accepts CharSequence as a parameter and returns nothing.
+This method works fine with text entry elements like INPUT and TEXTAREA elements.
+3.click( ) : void:
+This simulates the clicking of any element. Accepts nothing as a parameter and returns nothing.
+Most of the time we click on the links and it causes a new page to load, this method will attempt to wait until the page has loaded properly before handing over the execution to next statement. But If click() causes a new page to be loaded via an event or is done by sending a native event for example through javascript, then the method will not wait for it to be loaded.
+There are some preconditions for an element to be clicked. The element must be Visible and it must have a Height and Width greater than 0.
+4.isDisplayed( ) : boolean - This method determines if an element is currently being displayed or not. This accepts nothing as a parameter but returns a boolean value(true/false).
+Do not confuse this method with elements present on the page or not. This will return true if the element is present on the page and throw a NoSuchElementFound exception if the element is not present on the page. This refers to the property of the element, sometimes the element is present on the page but the property of the element is set to hidden, in that case, this will return false, as the element is present in the DOM but not visible to us.
+5.isEnabled( ) : boolean- This determines if the element currently is Enabled or not? This accepts nothing as a parameter but returns boolean value(true/false).
+6.isSelected( ) : boolean - Determine whether or not this element is selected or not. This accepts nothing as a parameter but returns boolean value(true/false).
+7.***submit( ) : void- ***This method works well/better than the click() if the current element is a form, or an element within a form. This accepts nothing as a parameter and returns nothing.
+8.getText( ) : String- This method will fetch the visible (i.e. not hidden by CSS) innerText of the element. This accepts nothing as a parameter but returns a String value.
+9.getTagName( ) : String- This method gets the tag name of this element. This accepts nothing as a parameter and returns a String value.
+10.getCssvalue( ) : String- This method Fetch CSS property value of the give element. This accepts nothing as a parameter and returns a String value.
+11.getAttribute(String Name) : String- This method gets the value of the given attribute of the element. This accepts the String as a parameter and returns a String value.
+12.getSize( ) : Dimension - This method fetch the width and height of the rendered element. This accepts nothing as a parameter but returns the Dimension object.
+Dimension dimensions = element.getSize();
+System.out.println(“Height :” + dimensions.height + ”Width : "+ dimensions.width);
+13.getLocation( ) : Point - This method locate the location of the element on the page. This accepts nothing as a parameter but returns the Point object.
+Point point = element.getLocation();
+System.out.println("X cordinate : " + point.x + "Y cordinate: " + point.y);
+

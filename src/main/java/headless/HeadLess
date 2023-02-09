@@ -1,0 +1,8 @@
+“Headless” browser is a hot term now especially in executing UI automated scripts. 
+When we launch a browser it opens up in a window or with a UI. We can launch a browser without that window or UI that is called a headless browser. 
+A headless browser gives you a real browser context without the memory overhead of running a full version of a browser. 
+All major browsers like Chrome, Firefox, Microsoft Edge support headless mode.
+Running automated UI scripts in a headless browser may lower test execution time but not that much significantly. 
+You can experience a little better performance during automated UI scripts execution. 
+But using a headless browser we can minimize the chances of encountering system configuration issues like memory, the abrupt closure of the browser, etc. 
+Execution of scripts in a headless browser is helpful when you don’t have any grid set up as it allows you to perform other tasks with scripts executions.

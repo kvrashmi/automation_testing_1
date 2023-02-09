@@ -1,0 +1,15 @@
+@Before
+	public void setUp()
+	{
+		System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");	
+		driver = new ChromeDriver();
+		driver.manage().deleteAllCookies();
+		driver.manage().window().maximize();
+	}
+	
+	@After
+	public void closeSession()
+	{
+		driver.close();
+		driver.quit();	
+	}
